@@ -1,12 +1,11 @@
-package com.invadermonky.templatemod.util;
+package com.invadermonky.legendarystages.util;
 
-import com.invadermonky.templatemod.TemplateMod;
+import com.invadermonky.legendarystages.LegendaryStages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.internal.LogManagerStatus;
 
 public class LogHelper {
-    private static final Logger LOG = LogManager.getLogger(TemplateMod.MOD_NAME);
+    private static final Logger LOG = LogManager.getLogger(LegendaryStages.MOD_NAME);
     public static void debug(Object obj) { LOG.debug(obj); }
     public static void error(Object obj) { LOG.error(obj); }
     public static void fatal(Object obj) { LOG.fatal(obj); }

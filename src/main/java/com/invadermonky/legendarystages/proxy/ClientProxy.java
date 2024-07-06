@@ -1,4 +1,4 @@
-package com.invadermonky.templatemod.proxy;
+package com.invadermonky.legendarystages.proxy;
 
 public class ClientProxy extends CommonProxy {
 }

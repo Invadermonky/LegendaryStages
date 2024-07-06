@@ -1,6 +1,6 @@
-# Changelog
+# Legendary Stages Changelog
 
-## [1.0.0] - 2023-09-15
+## [1.12.2-1.0.0]
 
 ### Added
-- This is a default template changelog that follows the [KeepAChangelog Convention](https://keepachangelog.com/en/1.1.0/)
+- Initial Release
