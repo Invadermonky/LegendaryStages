@@ -1,10 +1,8 @@
 package com.invadermonky.legendarystages;
 
-import com.anthonyhilyard.legendarytooltips.Loader;
 import com.invadermonky.legendarystages.config.ConfigHandlerLS;
 import com.invadermonky.legendarystages.proxy.CommonProxy;
 import com.invadermonky.legendarystages.util.LogHelper;
-import net.darkhax.itemstages.ItemStages;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

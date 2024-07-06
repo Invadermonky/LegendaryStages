@@ -1,11 +1,12 @@
 package com.invadermonky.legendarystages.config;
 
-import com.anthonyhilyard.legendarytooltips.LegendaryTooltipsConfig;
 import com.invadermonky.legendarystages.LegendaryStages;
 import com.invadermonky.legendarystages.events.TooltipEventHandler;
 import com.invadermonky.legendarystages.util.LogHelper;
 import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.Config.*;
+import net.minecraftforge.common.config.Config.Comment;
+import net.minecraftforge.common.config.Config.RequiresWorldRestart;
+import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
