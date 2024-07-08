@@ -14,7 +14,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
         name = LegendaryStages.MOD_NAME,
         version = LegendaryStages.VERSION,
         acceptedMinecraftVersions = LegendaryStages.MC_VERSION,
-        dependencies = LegendaryStages.DEPENDENCIES
+        dependencies = LegendaryStages.DEPENDENCIES,
+        clientSideOnly = true
 )
 public class LegendaryStages {
     public static final String MOD_ID = "legendarystages";
