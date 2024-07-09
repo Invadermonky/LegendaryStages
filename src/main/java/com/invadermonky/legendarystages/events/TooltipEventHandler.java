@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,18 @@ public class TooltipEventHandler {
         String stage = ItemStages.getStage(stack);
         if(borderStages.containsKey(stage)) {
             putStageFrameLevel(stack);
+        }
+    }
+
+    @Nullable
+    @SuppressWarnings("unchecked")
+    public static Map<ItemStack, Integer> getFrameLevelCache() {
+        try {
+            Field frameLevelCacheField = LegendaryTooltipsConfig.class.getDeclaredField("frameLevelCache");
+            frameLevelCacheField.setAccessible(true);
+            return (Map<ItemStack, Integer>) frameLevelCacheField.get(LegendaryTooltipsConfig.INSTANCE);
+        } catch (Exception ignored) {
+            return null;
         }
     }
 
@@ -49,16 +62,10 @@ public class TooltipEventHandler {
         return stageFrame;
     }
 
-
-    @SuppressWarnings("unchecked")
     private static void putStageFrameLevel(ItemStack stack) {
-        try {
-            Field frameLevelCacheField = LegendaryTooltipsConfig.class.getDeclaredField("frameLevelCache");
-            frameLevelCacheField.setAccessible(true);
-            Map<ItemStack, Integer> frameLevelCache = (Map<ItemStack, Integer>) frameLevelCacheField.get(LegendaryTooltipsConfig.INSTANCE);
-            if (!frameLevelCache.containsKey(stack)) {
-                frameLevelCache.put(stack, getFrameLevel(stack));
-            }
-        } catch (Exception e) {}
+        Map<ItemStack, Integer> frameLevelCache = getFrameLevelCache();
+        if(frameLevelCache != null && !frameLevelCache.containsKey(stack)) {
+            frameLevelCache.put(stack, getFrameLevel(stack));
+        }
     }
 }

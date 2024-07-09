@@ -3,6 +3,7 @@ package com.invadermonky.legendarystages.config;
 import com.invadermonky.legendarystages.LegendaryStages;
 import com.invadermonky.legendarystages.events.TooltipEventHandler;
 import com.invadermonky.legendarystages.util.LogHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.RequiresWorldRestart;
@@ -12,9 +13,11 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.lang.reflect.Field;
+import java.util.Map;
+
 @Config(modid = LegendaryStages.MOD_ID)
 public class ConfigHandlerLS {
-    @RequiresWorldRestart
     @Comment("Defines the border used for each game stage. Border priorities are inherited from the Legendary Tooltips\n" +
             "configuration, allowing stage borders to be overwritten when applicable. Format: <stage_name>;<border_index>\n" +
             "Borders are indexed starting from 0, oriented from top to bottom, then left to right.\n" +
@@ -43,6 +46,11 @@ public class ConfigHandlerLS {
                 } else {
                     LogHelper.error("Invalid config entry: " + stageBorder);
                 }
+            }
+
+            Map<ItemStack, Integer> frameLevelCache = TooltipEventHandler.getFrameLevelCache();
+            if(frameLevelCache != null) {
+                frameLevelCache.clear();
             }
         }
     }
